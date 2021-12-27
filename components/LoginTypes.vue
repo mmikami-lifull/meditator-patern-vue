@@ -1,5 +1,5 @@
 <template>
-  <v-row class="pl-2">
+  <v-row>
     <v-col class="d-flex align-center" cols=12 md=3>
       <span>Login type:</span> 
     </v-col>
@@ -44,7 +44,7 @@ export default class LoginTypes extends Vue {
   }
 
   clicked(type: LoginTypeEnum) {
-    this.$emit("loginTypeClicked", type)
+    this.$emit("clicked", type)
   }
 }
 </script>
