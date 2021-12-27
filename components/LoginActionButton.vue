@@ -18,13 +18,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class LoginActionButton extends Vue {
   @Prop()
   title!: string
-
   @Prop({ default: false })
   disabled!: boolean
-
   @Prop({ default: false })
   dark!: boolean
-
   @Prop({ default: undefined })
   color!: string
 
