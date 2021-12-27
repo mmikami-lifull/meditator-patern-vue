@@ -1,6 +1,6 @@
 <template>
   <v-text-field
-    v-model="value"
+    v-model="text"
     :disabled="disabled"
     :type="type"
   />
@@ -11,16 +11,21 @@ import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
 
 @Component
 export default class LoginTextField extends Vue {
-  private value = ""
+  private text = ""
 
   @Prop()
+  value!: string
+  @Prop()
   disabled!: boolean
-
   @Prop({ default: false })
   password!: boolean
 
   @Watch("value")
   onValueChanged(v: string) {
+    this.text = v
+  }
+  @Watch("text")
+  onTextChanged(v: string) {
     this.$emit("changed", v)
   }
 

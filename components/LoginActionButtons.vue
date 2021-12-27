@@ -2,13 +2,17 @@
   <v-row class="justify-center">
     <v-col cols=3>
       <LoginActionButton
+        color="primary"
         title="ok"
-        :dark="true"
+        :disabled="okDisabled"
+        :dark="dark"
+        @clicked="okClicked"
       />
     </v-col>
     <v-col cols=3>
       <LoginActionButton
         title="cancel"
+        @clicked="cancelClicked"
       />
     </v-col>
   </v-row>
@@ -24,10 +28,17 @@ export default class LoginActionButtons extends Vue {
   title!: string
 
   @Prop()
-  disabled!: boolean
+  okDisabled!: boolean
 
-  clicked() {
-    this.$emit("clicked")
+  get dark() {
+    return !this.okDisabled
+  }
+
+  okClicked() {
+    this.$emit("okClicked")
+  }
+  cancelClicked() {
+    this.$emit("cancelClicked")
   }
 }
 </script>

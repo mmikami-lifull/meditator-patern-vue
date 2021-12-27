@@ -2,6 +2,7 @@
   <v-btn
     :disabled="disabled"
     :dark="dark"
+    :color="color"
     depressed
     min-width="120"
     @click="clicked"
@@ -18,11 +19,14 @@ export default class LoginActionButton extends Vue {
   @Prop()
   title!: string
 
-  @Prop()
+  @Prop({ default: false })
   disabled!: boolean
 
   @Prop({ default: false })
   dark!: boolean
+
+  @Prop({ default: undefined })
+  color!: string
 
   clicked() {
     this.$emit("clicked")
