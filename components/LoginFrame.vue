@@ -9,7 +9,7 @@
         @clicked="loginTypeClicked"
       />
       <LoginTextFields
-        :disabled="textFieldsDisabled"
+        :disabled="!canEditFields"
         :username="username"
         :password="password"
         @usernameChanged="usernameChanged"
@@ -52,15 +52,15 @@ export default class LoginFrame extends Vue {
   private username = ""
   private password = ""
 
-  get isTypeGuest() {
-    return this.currentLoginType === LoginTypeEnum["GUEST"]
+  get isTypeLogin() {
+    return this.currentLoginType === LoginTypeEnum["LOGIN"]
   }
-  get textFieldsDisabled() {
-    return this.isTypeGuest
+  get canEditFields() {
+    return this.isTypeLogin
   }
   get canClickOk() {
     return (
-      !this.isTypeGuest
+      this.isTypeLogin
       && this.username
       && this.password
     )
