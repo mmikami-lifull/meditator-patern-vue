@@ -18,7 +18,7 @@
     </v-card-text>
     <v-card-actions>
       <LoginActionButtons
-        :okDisabled="okBtnDisabled"
+        :okDisabled="!canClickOk"
         @okClicked="okClicked"
         @cancelClicked="cancelClicked"
       />
@@ -58,15 +58,12 @@ export default class LoginFrame extends Vue {
   get textFieldsDisabled() {
     return this.isTypeGuest
   }
-  get okBtnEnabled() {
+  get canClickOk() {
     return (
       !this.isTypeGuest
       && this.username
       && this.password
     )
-  }
-  get okBtnDisabled() {
-    return !this.okBtnEnabled
   }
 
   init() {
