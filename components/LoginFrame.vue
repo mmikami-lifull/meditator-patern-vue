@@ -58,7 +58,7 @@ export default class LoginFrame extends Vue {
   get textFieldsDisabled() {
     return this.isTypeGuest
   }
-  get okBtnDnabled() {
+  get okBtnEnabled() {
     return (
       !this.isTypeGuest
       && this.username
@@ -66,7 +66,7 @@ export default class LoginFrame extends Vue {
     )
   }
   get okBtnDisabled() {
-    return !this.okBtnDnabled
+    return !this.okBtnEnabled
   }
 
   init() {
