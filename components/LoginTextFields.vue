@@ -20,7 +20,6 @@
       />
     </v-col>
   </v-row>
-  
 </template>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto" max-width="600">
     <v-card-title class="text-h3">
-      Login
+      <span class="mx-auto">LOGIN</span>
     </v-card-title>
     <v-card-text class="text-h6 pl-6">
       <LoginTypes
@@ -14,6 +14,7 @@
       />
     </v-card-text>
     <v-card-actions>
+      <LoginActionButtons />
     </v-card-actions>
   </v-card>
 </template>
@@ -22,6 +23,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import LoginTypes from "@/components/LoginTypes.vue"
 import LoginTextFields from "@/components/LoginTextFields.vue"
+import LoginActionButtons from "@/components/LoginActionButtons.vue"
 import { LoginTypeEnum } from '@/lib/enum'
 
 @Component(
@@ -29,6 +31,7 @@ import { LoginTypeEnum } from '@/lib/enum'
     components: { 
       LoginTypes ,
       LoginTextFields,
+      LoginActionButtons,
     }
   }
 )
