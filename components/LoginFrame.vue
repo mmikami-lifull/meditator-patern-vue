@@ -52,6 +52,9 @@ export default class LoginFrame extends Vue {
   private username = ""
   private password = ""
 
+  get isTypeGuest() {
+    return this.currentLoginType === LoginTypeEnum["GUEST"]
+  }
   get isTypeLogin() {
     return this.currentLoginType === LoginTypeEnum["LOGIN"]
   }
@@ -60,9 +63,11 @@ export default class LoginFrame extends Vue {
   }
   get canClickOk() {
     return (
-      this.isTypeLogin
-      && this.username
-      && this.password
+      this.isTypeGuest || (
+        this.isTypeLogin
+        && this.username
+        && this.password
+      )
     )
   }
 
@@ -81,10 +86,15 @@ export default class LoginFrame extends Vue {
     this.password = password
   }
   okClicked() {
-    const msg = 
-      this.validateAuth()
-      ? "Login success"
-      : "Invalid auth"
+    let msg = ""
+    if (this.isTypeGuest) {
+      msg = "Guest login"
+    } else {
+      msg = 
+        this.validateAuth()
+        ? "Login success"
+        : "Invalid auth"
+    }
     window.alert(msg)
   }
   cancelClicked() {
