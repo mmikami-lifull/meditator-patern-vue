@@ -6,14 +6,14 @@
     <v-card-text class="text-h6 pl-6">
       <LoginTypes
         :currentLoginType="currentLoginType"
-        @clicked="loginTypeClicked"
+        @clicked="setLoginType"
       />
       <LoginTextFields
         :disabled="!canEditFields"
         :username="username"
         :password="password"
-        @usernameChanged="usernameChanged"
-        @passwordChanged="passwordChanged"
+        @setUsername="setUsername"
+        @setPassword="setPassword"
       />
     </v-card-text>
     <v-card-actions>
@@ -71,13 +71,13 @@ export default class LoginFrame extends Vue {
     this.username = ""
     this.password = ""
   }
-  loginTypeClicked(type: LoginTypeEnum) {
+  setLoginType(type: LoginTypeEnum) {
     this.currentLoginType = type
   }
-  usernameChanged(username: string) {
+  setUsername(username: string) {
     this.username = username
   }
-  passwordChanged(password: string) {
+  setPassword(password: string) {
     this.password = password
   }
   okClicked() {
