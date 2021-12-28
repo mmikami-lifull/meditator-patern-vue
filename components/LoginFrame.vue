@@ -12,8 +12,8 @@
         :disabled="!canEditFields"
         :username="username"
         :password="password"
-        @setUsername="setUsername"
-        @setPassword="setPassword"
+        @usernameChanged="setUsername"
+        @passwordChanged="setPassword"
       />
     </v-card-text>
     <v-card-actions>
